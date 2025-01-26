@@ -43,7 +43,10 @@ def get_num_words(text):
 
 #gets the text or returns error message
 def get_text(path):
+    try:
         with open(path) as f:
             return f.read()
-
+    except FileNotFoundError:
+        print(f"Error: Could not find file {path}")
+        return ""
 main()
